@@ -1,0 +1,190 @@
+<context>
+# Overview  
+[This mobile application enables users to securely sign up and log in using just their full name, email, and password. The platform is designed for simplicity and fast onboarding without external authentication providers.]
+
+---
+
+# Core Features 
+
+- **Email Sign-Up**  
+  - Users create accounts using their full name, email, and password.  
+  - Secure credentials are stored in PostgreSQL via FastAPI backend.
+
+- **Email Login**  
+  - Users can log in using email and password.  
+  - Returns JWT token for secure session handling.
+
+- **Password Visibility Toggle**  
+  - Eye icon toggles between masked/unmasked password input for usability.
+
+- **Form Validation**  
+  - Real-time validation for email format and password strength.
+
+- **Terms of Use Consent**  
+  - Informative footer explaining Terms of Use consent on account creation.
+
+---
+
+# User Experience  
+
+- **Log-In Page** 
+  - UI image Path : D:\biz4-ai\screens\login.png
+  - Dark-themed background  
+  - Fields: Email, Password  
+  - CTA: Orange “Sign In” button  
+  - Link to Choose-Plan-Individual Page  
+  - Footer: “Don't have an account? Sign Up”
+  - Header: "HELLO! WELCOME BACK" Enter your email and password to access your account.
+  - Top - Logo 
+  - Bottom of Password input - toggle button of Remember Me and Link button of Forgot Password?
+  - Password input - eye icon for hide and showing password
+  - validation for email and password input
+
+
+- **Sign-Up Page**  
+  - UI image Path : D:\biz4-ai\screens\signup.png
+  - Dark-themed background  
+  - Fields: Full Name, Email, Password  
+  - CTA: Orange “Sign Up” button  
+  - Link to Log In  
+  - Footer: “Already have an account? Sign In” using the keep Watching Us platform means you agree to the Terms of Use.
+
+- **Forgot-Password Page**
+  - UI image Path : D:\biz4-ai\screens\forget-password.png
+  - Dark-themed background  
+  - Fields: Email
+  - CTA: Orange “Send Code” button  
+  - Footer: “Remember your password?” Sign In
+
+- **Verification-Code Page**
+  - UI image Path : D:\biz4-ai\screens\verification-code.png
+  - Dark-themed background  
+  - Fields: Enter Code  
+  - CTA: Orange “Verify Now” button  
+  - Footer: “Not received code?” Resend in 01:26
+
+- **Password-Reset Page**      
+  - UI image Path : D:\biz4-ai\screens\password-reset.png
+  - Dark-themed background  
+  - Fields: Password , Confirm Password 
+  - CTA: Orange “Verify Now” button  
+  - Footer: “Not received code?” Resend in 01:26
+
+- **Choose-Plan-Individual Page**
+  - UI image Path : D:\biz4-ai\screens\choose-plan-individual.png
+  - Dark-themed background  
+
+- **Choose-Plan-Organization Page**  
+  - UI image Path : D:\biz4-ai\screens\choose-plan-organization.png
+  - Dark-themed background  
+
+- **Expected Flow:**  
+  1. User opens app → navigates to Sign-Up  
+  2. Enters details → submits form  
+  3. Backend validates and stores data → success response  
+  4. Redirect to login or home page
+
+</context>
+
+<PRD>
+
+# Technical Architecture  
+
+### **Frontend: React Native**
+  - Screens: Login, Signup, Forgot Password, Verification, Reset, Plan Selection
+  - JWT stored securely via `AsyncStorage` or equivalent
+  - Form validation for all fields
+  - Secure session handling and UI responsiveness
+
+### **Backend: FastAPI (Python)**
+- Auth endpoints:
+  - `POST /signup`: Register new user
+  - `POST /login`: Login, return JWT
+  - `POST /forgot-password`: Send code
+  - `POST /verify-code`: Verify code
+  - `POST /reset-password`: Update password
+  - Passwords hashed using bcrypt
+
+
+  - Form handling with input validation  
+  - Secure storage of JWT using `AsyncStorage` or similar  
+
+- **Backend:** FastAPI (Python)  
+  - Auth endpoints:
+   - `POST /signup`: Register new user
+  - `POST /login`: Login, return JWT
+  - `POST /forgot-password`: Send code
+  - `POST /verify-code`: Verify code
+  - `POST /reset-password`: Update password
+  - Passwords hashed using bcrypt
+
+- **Database:** PostgreSQL  
+  - `users` table schema:  
+    ```sql
+    CREATE TABLE users (
+      id SERIAL PRIMARY KEY,
+      full_name TEXT NOT NULL,
+      email TEXT UNIQUE NOT NULL,
+      password_hash TEXT NOT NULL,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+    ```
+
+- **Authentication:**  
+  - JWT (access tokens) with FastAPI security middleware  
+  - Tokens stored on frontend post-login
+
+
+# Development Roadmap  
+
+#### **Phase 1: MVP**  
+- Create sign-up and login UIs, forgot password, verification code, password reset, choose a plan as individual, choose a plan as organization in React Native  
+- Set up FastAPI backend with endpoints  
+- Connect to PostgreSQL and define user model  
+- Enable password hashing and JWT issuance  
+- Validate form inputs (email/password format)
+
+#### **Phase 2: UX Polish & Security**  
+- Error messages and form feedback  
+- Secure token storage on mobile  
+- Brute-force protection (rate limiting)  
+- Optional: Email confirmation
+
+#### **Phase 3: Post-MVP Enhancements**  
+- Password reset via email  
+- Persistent login  
+- Account deletion or settings screen  
+
+
+# Logical Dependency Chain  
+1. Backend setup: FastAPI + PostgreSQL schema  
+2. Create user API endpoints (signup/login)  
+3. Build basic UI screens in React Native  
+4. Wire frontend to backend  
+5. Test authentication flow end-to-end  
+6. Polish UI, add form validation and edge-case handling  
+
+
+# Risks and Mitigations
+
+- **Security risks:**  
+  - Mitigate with hashed passwords, HTTPS, secure JWT storage  
+- **Incorrect JWT handling:**  
+  - Use FastAPI JWT middleware and validate on every request  
+- **DB schema inflexibility:**  
+  - Start with minimal fields, add fields via migrations when needed  
+- **Frontend-backend sync issues:**  
+  - Use Postman + Mock data early, then test full integration  
+
+
+# Reference UI Images
+- Tools used:  
+  - Frontend: React Native  
+  - Backend: FastAPI  
+  - DB: PostgreSQL  
+- No Google or social logins included  
+- Focus on minimal and fast authentication for initial version  
+
+# Appendix   
+
+</PRD>

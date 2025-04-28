@@ -1,0 +1,31 @@
+# Task ID: 5
+# Title: Build React Native UI Screens
+# Status: done
+# Dependencies: 1
+# Priority: medium
+# Description: Create UI screens for login, signup, forgot password, verification, reset, and plan selection.
+# Details:
+Develop screens using React Native with dark-themed backgrounds and specified UI elements. Ensure responsiveness and accessibility.
+
+# Test Strategy:
+Visually inspect each screen on multiple devices and resolutions.
+
+# Subtasks:
+## 1. Set Up Project and Create Basic Screen Structure [done]
+### Dependencies: None
+### Description: Initialize the React Native project and create basic screen components for login, signup, forgot password, verification, reset, and plan selection.
+### Details:
+Start by setting up a new React Native project using a tool like Expo or React Native CLI. Create separate component files for each screen: LoginScreen, SignupScreen, ForgotPasswordScreen, VerificationScreen, ResetScreen, and PlanSelectionScreen. Ensure each component returns a basic View with a Text element indicating the screen name. This will serve as the foundation for further development.
+
+## 2. Implement UI Elements with Dark Theme [done]
+### Dependencies: 5.1
+### Description: Design and implement the UI elements for each screen using a dark-themed background, ensuring consistency across screens.
+### Details:
+For each screen component, replace the basic View with a styled View that uses a dark color scheme. Implement necessary UI elements such as TextInputs, Buttons, and any other required components. Use React Native's StyleSheet to define styles, ensuring that the dark theme is applied consistently. Consider using a UI library like React Native Paper or NativeBase for additional components and theming support.
+
+## 3. Ensure Responsiveness and Accessibility [done]
+### Dependencies: 5.2
+### Description: Enhance the screens to be responsive across different device sizes and ensure accessibility features are implemented.
+### Details:
+Use Flexbox for layout to ensure that the UI adapts to different screen sizes. Test the screens on various devices and orientations. Implement accessibility features such as accessible labels for all interactive elements, proper contrast ratios, and keyboard navigation support. Use React Native's Accessibility API to ensure compliance with accessibility standards.
+

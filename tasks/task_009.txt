@@ -1,0 +1,31 @@
+# Task ID: 9
+# Title: Implement Terms of Use Consent
+# Status: done
+# Dependencies: 5
+# Priority: low
+# Description: Display Terms of Use consent information on the signup page.
+# Details:
+Add footer text to the signup page explaining that using the platform means agreeing to the Terms of Use.
+
+# Test Strategy:
+Ensure the footer is visible and correctly formatted on the signup page.
+
+# Subtasks:
+## 1. Design Terms of Use Consent UI [done]
+### Dependencies: None
+### Description: Create a design for displaying the Terms of Use consent information on the signup page.
+### Details:
+Work with the design team to create a mockup for the Terms of Use consent section. This should include the placement of the text in the footer, font size, color, and any additional styling to ensure it is visible and consistent with the overall design of the signup page.
+
+## 2. Implement Terms of Use Consent UI [done]
+### Dependencies: 9.1
+### Description: Develop the frontend code to display the Terms of Use consent information on the signup page as per the design.
+### Details:
+Using HTML, CSS, and JavaScript, implement the design created in Subtask 1. Ensure the text is added to the footer of the signup page and is responsive across different devices. Test the implementation across various browsers to ensure compatibility.
+
+## 3. Integrate Terms of Use Link [done]
+### Dependencies: 9.2
+### Description: Add a hyperlink to the Terms of Use text that directs users to the full Terms of Use document.
+### Details:
+Modify the Terms of Use text in the footer to include a clickable link. Ensure the link opens the full Terms of Use document in a new tab or window. Verify that the link is accessible and functional, and update any necessary routing or URL configurations to support this feature.
+

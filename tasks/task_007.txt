@@ -1,0 +1,31 @@
+# Task ID: 7
+# Title: Implement Form Validation
+# Status: done
+# Dependencies: 5
+# Priority: medium
+# Description: Add real-time form validation for email and password fields on the frontend.
+# Details:
+Use libraries like Formik or custom validation logic to enforce email format and password strength rules.
+
+# Test Strategy:
+Test form inputs with valid and invalid data to ensure proper validation messages are displayed.
+
+# Subtasks:
+## 1. Set Up Formik for Form Handling [done]
+### Dependencies: None
+### Description: Integrate Formik into the project to manage form state and handle submissions.
+### Details:
+Install Formik via npm or yarn. Wrap the form component with the Formik component, providing initial values for the email and password fields. Ensure that Formik's handleChange and handleSubmit methods are connected to the form inputs and submission button.
+
+## 2. Implement Email Validation Logic [done]
+### Dependencies: 7.1
+### Description: Add real-time validation for the email field to ensure it follows a valid email format.
+### Details:
+Use Formik's validationSchema or validate function to define a validation rule for the email field. Utilize a library like Yup to specify that the email field must match a standard email regex pattern. Display error messages below the email input field when the validation fails.
+
+## 3. Implement Password Strength Validation [done]
+### Dependencies: 7.1
+### Description: Add real-time validation for the password field to enforce password strength rules.
+### Details:
+Define password strength criteria, such as minimum length, inclusion of numbers, and special characters. Use Formik's validationSchema or validate function to apply these rules to the password field. Display error messages below the password input field when the validation fails, providing feedback on which criteria are not met.
+

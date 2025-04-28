@@ -1,0 +1,31 @@
+# Task ID: 6
+# Title: Integrate Frontend with Backend
+# Status: done
+# Dependencies: 4, 5
+# Priority: high
+# Description: Connect React Native frontend with FastAPI backend for authentication flows.
+# Details:
+Use Axios or Fetch API to handle HTTP requests from React Native to FastAPI endpoints. Manage JWT tokens with AsyncStorage.
+
+# Test Strategy:
+Perform end-to-end testing of signup and login flows to ensure data is correctly sent and received.
+
+# Subtasks:
+## 1. Set Up HTTP Client in React Native [done]
+### Dependencies: None
+### Description: Configure Axios or Fetch API to handle HTTP requests to the FastAPI backend.
+### Details:
+Decide whether to use Axios or Fetch API for making HTTP requests. Install Axios if chosen by running 'npm install axios'. Create a utility file (e.g., 'apiClient.js') to configure the HTTP client with base URL pointing to the FastAPI backend. Ensure the client can handle common configurations such as headers and timeouts.
+
+## 2. Implement Authentication API Calls [done]
+### Dependencies: 6.1
+### Description: Create functions to handle authentication requests such as login and registration using the configured HTTP client.
+### Details:
+In the utility file, implement functions for authentication flows like 'login' and 'register'. These functions should use the HTTP client to send POST requests to the corresponding FastAPI endpoints. Handle responses and errors appropriately, ensuring that JWT tokens are extracted from successful responses.
+
+## 3. Manage JWT Tokens with AsyncStorage [done]
+### Dependencies: 6.2
+### Description: Store and retrieve JWT tokens using AsyncStorage to maintain user sessions.
+### Details:
+Install AsyncStorage if not already available by running 'npm install @react-native-async-storage/async-storage'. In the authentication functions, save the JWT token to AsyncStorage upon successful login or registration. Implement utility functions to retrieve and delete the token as needed, ensuring secure and efficient token management.
+

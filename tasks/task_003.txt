@@ -1,0 +1,31 @@
+# Task ID: 3
+# Title: Define Database Schema
+# Status: done
+# Dependencies: 2
+# Priority: high
+# Description: Create 'users' table in PostgreSQL database.
+# Details:
+Use provided SQL schema to create 'users' table with fields for id, full_name, email, password_hash, and created_at.
+
+# Test Strategy:
+Verify table creation in PostgreSQL and test with sample data insertion.
+
+# Subtasks:
+## 1. Review and Validate SQL Schema [done]
+### Dependencies: None
+### Description: Ensure the provided SQL schema for the 'users' table is complete and adheres to best practices.
+### Details:
+Examine the SQL schema to confirm it includes all necessary fields (id, full_name, email, password_hash, created_at) with appropriate data types and constraints. Ensure that 'id' is set as the primary key, 'email' has a unique constraint, and 'created_at' has a default value of the current timestamp. Make any necessary adjustments to align with best practices for database design.
+
+## 2. Set Up PostgreSQL Environment [done]
+### Dependencies: 3.1
+### Description: Prepare the PostgreSQL database environment for schema creation.
+### Details:
+Ensure PostgreSQL is installed and running on the target environment. Create a new database if necessary. Set up a connection to the database using a database client or command-line tool. Confirm that you have the necessary permissions to create tables in the database.
+
+## 3. Execute SQL Schema to Create 'users' Table [done]
+### Dependencies: 3.2
+### Description: Run the validated SQL schema to create the 'users' table in the PostgreSQL database.
+### Details:
+Using the database client or command-line tool, execute the SQL script to create the 'users' table. Verify that the table is created successfully by checking the database schema and ensuring all fields are present with the correct constraints. Address any errors that arise during execution.
+

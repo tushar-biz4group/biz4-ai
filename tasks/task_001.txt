@@ -1,0 +1,31 @@
+# Task ID: 1
+# Title: Setup Project Repository
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Create GitHub repository with initial project structure for both frontend and backend.
+# Details:
+Initialize with README, .gitignore, and set up initial directory structure for React Native frontend and FastAPI backend.
+
+# Test Strategy:
+Verify repository is accessible and clone-able by all team members.
+
+# Subtasks:
+## 1. Create GitHub Repository and Initialize with README and .gitignore [done]
+### Dependencies: None
+### Description: Set up a new GitHub repository for the project and initialize it with a README file and a .gitignore file.
+### Details:
+Log in to GitHub and create a new repository. Name the repository appropriately to reflect the project. Initialize the repository with a README file to provide an overview of the project. Add a .gitignore file to exclude unnecessary files from being tracked, using templates for Node.js and Python to cover both frontend and backend needs.
+
+## 2. Set Up Initial Directory Structure for React Native Frontend [done]
+### Dependencies: 1.1
+### Description: Create the initial directory structure for the React Native frontend within the repository.
+### Details:
+Clone the newly created GitHub repository to your local machine. Inside the repository, create a directory named 'frontend'. Within this directory, set up the basic structure for a React Native project, including directories for components, assets, and any other necessary subdirectories. Use 'npx react-native init' to initialize a new React Native project within the 'frontend' directory.
+
+## 3. Set Up Initial Directory Structure for FastAPI Backend [done]
+### Dependencies: 1.1
+### Description: Create the initial directory structure for the FastAPI backend within the repository.
+### Details:
+Within the cloned repository, create a directory named 'backend'. Inside this directory, set up the basic structure for a FastAPI project, including directories for app modules, static files, and templates if needed. Initialize a virtual environment and install FastAPI and Uvicorn. Create a main.py file as the entry point for the FastAPI application.
+

@@ -1,0 +1,51 @@
+Sure! Here's your list of **FastAPI best practices** converted into clear, concise bullet points:
+
+---
+
+### ✅ FastAPI Best Practices
+
+- **Use Python Type Hints**  
+  Enhance code clarity and maintainability using type hints.
+
+- **Descriptive & Consistent API Routes**  
+  - Use meaningful and self-explanatory names.  
+  - Stick to lowercase letters, with hyphens (`-`) or underscores (`_`) for separation.
+
+- **Organize Code into Modules/Packages**  
+  Structure your project based on functionality for scalability and readability.
+
+- **Document API Routes with Docstrings**  
+  - Use concise docstrings for each endpoint.  
+  - Leverage FastAPI’s auto-generated interactive docs (Swagger, ReDoc).
+
+- **Proper Error Handling**  
+  - Use `HTTPException` with appropriate status codes and messages.  
+  - Provide graceful, meaningful error responses.
+
+- **Security Considerations**  
+  - Sanitize and validate all user input.  
+  - Prevent vulnerabilities (e.g., SQL injection).  
+  - Implement proper authentication and authorization.
+
+- **Efficient Code Practices**  
+  - Use suitable data structures and algorithms.  
+  - Avoid unnecessary computations.  
+  - Utilize FastAPI’s async features when applicable.
+
+- **Use Middleware**  
+  Add custom functionality like logging, authentication, rate limiting, etc.
+
+- **Enable Debugging**  
+  Set up Python debugging with VS Code (`debugpy` or built-in debugger).
+
+- **Implement CORS Properly**  
+  Allow secure cross-origin requests using FastAPI's CORS middleware.
+
+- **Use Pydantic Models**  
+  - Define request and response schemas.  
+  - Enable automatic data validation and serialization.
+
+- **Server-Side Rendering (SSR)**  
+  Use templating engines like **Jinja2** or **Mako** to generate dynamic HTML pages.
+
+---

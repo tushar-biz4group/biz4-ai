@@ -1,0 +1,95 @@
+Absolutely! Here's your comprehensive **React Native best practices** guide converted into a clean, structured bullet-point format:
+
+---
+
+### ✅ React Native Best Practices
+
+#### 🔵 Styling & Platform Considerations
+- **Use Platform-Centric Styles**  
+  Adjust component appearance based on the OS (iOS or Android).
+
+- **Avoid Inline Styling**  
+  Use `StyleSheet` for better readability and performance.
+
+- **Use `SafeAreaView`**  
+  Ensures content respects iOS safe zones.
+
+- **Use `KeyboardAvoidingView`**  
+  Adjusts UI to accommodate the keyboard appearance.
+
+---
+
+#### 📁 Folder Structure & Naming Conventions
+- **Folders/Subfolders**: Start with lowercase (e.g., `maincomponent`)
+- **Files**: Use PascalCase (e.g., `MainComponent.js`)
+- **Variables/Objects**: Use camelCase
+- **Semicolon Usage**: Be consistent—use everywhere or nowhere.
+- **Project Organization**:
+  - All code (components, globals, images, redux, etc.) goes inside the `app` folder.
+  - All non-global components go in `app/components`.
+  - Each page should have its own styles within its folder.
+
+---
+
+#### 📦 Imports Ordering
+1. **React imports**
+2. **Library imports** (alphabetically)
+3. **Absolute imports from project** (alphabetically)
+4. **Relative imports** (alphabetically)
+5. `import * as`
+6. `import './some-file.extension'`
+
+Separate each group with an empty line.
+
+---
+
+#### 🔧 Code Quality & Linting
+- Use **ESLint** with React Native-specific configuration.
+- **Remove all `console.log`** statements before pushing code.
+- **Use functional components** for modern and maintainable code.
+
+---
+
+#### 🌐 Connectivity & Validations
+- **Check for internet connectivity** to avoid crashes offline.
+- **Validate data both locally and on the server** to ensure integrity.
+
+---
+
+#### 📱 UI & Navigation
+- **Include a back button** where necessary.
+- **Use a common header component** for consistency across screens.
+- **Use proper stack navigation structure**:
+  - Avoid complex/nested structures.
+  - Don’t pass large data through navigation params—use state management instead.
+  - Handle navigator events (`focus`, `blur`, `beforeRemove`) appropriately.
+
+---
+
+#### 🛡️ Security & Dependencies
+- **Lock dependencies** (remove `^` to fix to specific version).
+- **Avoid using `TouchableWithoutFeedback`**.
+- **Avoid using Expo** for more flexibility and control with React Native CLI.
+- **Keep dependencies up-to-date** regularly.
+
+---
+
+#### 🔁 State Management
+- Choose based on project size:
+  - **Redux** for large/global state.
+  - **Context API** for small/local state.
+
+---
+
+#### ⚙️ Performance Optimization
+- Use `VirtualizedList` or `FlatList` for large lists.
+- Use `React.memo`, `useMemo`, and `useCallback` to reduce re-renders.
+
+---
+
+#### 📄 Documentation & Maintenance
+- Maintain **clear and up-to-date documentation**.
+- Ensure proper **package installation** and approval before merging code.
+
+---
+

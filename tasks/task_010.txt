@@ -1,0 +1,31 @@
+# Task ID: 10
+# Title: Conduct Security and Usability Testing
+# Status: done
+# Dependencies: 6, 7, 8, 9
+# Priority: medium
+# Description: Perform comprehensive testing for security vulnerabilities and user experience issues.
+# Details:
+Test for common security issues like SQL injection, XSS, and ensure JWT tokens are securely stored. Gather user feedback on UI/UX.
+
+# Test Strategy:
+Use security testing tools and conduct user testing sessions to identify and fix issues.
+
+# Subtasks:
+## 1. Perform Security Testing [done]
+### Dependencies: None
+### Description: Conduct security testing to identify vulnerabilities such as SQL injection, XSS, and ensure JWT tokens are securely stored.
+### Details:
+Use automated security testing tools like OWASP ZAP or Burp Suite to scan for vulnerabilities. Manually test for SQL injection and XSS by attempting to inject malicious scripts and SQL queries in input fields. Verify that JWT tokens are stored securely by checking for proper encryption and storage practices. Document any vulnerabilities found and suggest remediation steps.
+
+## 2. Conduct Usability Testing [done]
+### Dependencies: 10.1
+### Description: Gather user feedback on UI/UX to identify user experience issues.
+### Details:
+Recruit a group of users representative of the target audience. Conduct usability testing sessions where users perform common tasks using the application. Observe and record any difficulties or confusion encountered. Use surveys or interviews to gather additional feedback on the user interface and overall experience. Compile the feedback into a report highlighting key issues and potential improvements.
+
+## 3. Analyze and Report Findings [done]
+### Dependencies: 10.1, 10.2
+### Description: Analyze the results from security and usability testing and compile a comprehensive report.
+### Details:
+Review the findings from both security and usability testing. Prioritize issues based on severity and impact. Compile a detailed report that includes identified security vulnerabilities, user experience issues, and recommended solutions. Present the report to stakeholders and discuss the next steps for addressing the identified issues.
+

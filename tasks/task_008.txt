@@ -1,0 +1,31 @@
+# Task ID: 8
+# Title: Add Password Visibility Toggle
+# Status: done
+# Dependencies: 5
+# Priority: low
+# Description: Implement eye icon functionality to toggle password visibility on login and signup screens.
+# Details:
+Add an eye icon to password input fields and toggle input type between 'password' and 'text' on icon click.
+
+# Test Strategy:
+Verify that clicking the eye icon correctly toggles password visibility.
+
+# Subtasks:
+## 1. Add Eye Icon to Password Input Fields [done]
+### Dependencies: None
+### Description: Add an eye icon to the password input fields on both login and signup screens.
+### Details:
+Identify the password input fields in the login and signup screens. Use a UI component library or custom SVG to add an eye icon next to these fields. Ensure the icon is styled appropriately and is clickable.
+
+## 2. Implement Password Visibility Toggle Functionality [done]
+### Dependencies: 8.1
+### Description: Implement the functionality to toggle the password visibility when the eye icon is clicked.
+### Details:
+Attach a click event listener to the eye icon. On click, toggle the input type of the associated password field between 'password' and 'text'. Ensure the icon visually indicates the current state (e.g., open eye for visible password, closed eye for hidden password).
+
+## 3. Test and Validate Password Visibility Toggle [done]
+### Dependencies: 8.2
+### Description: Test the password visibility toggle functionality to ensure it works correctly on both login and signup screens.
+### Details:
+Perform manual testing to verify that clicking the eye icon correctly toggles the password visibility. Check for any UI issues or JavaScript errors in the console. Ensure that the functionality is consistent across different browsers and devices. Update any automated tests if necessary.
+

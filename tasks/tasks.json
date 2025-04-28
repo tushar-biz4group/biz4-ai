@@ -1,0 +1,435 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Setup Project Repository",
+      "description": "Create GitHub repository with initial project structure for both frontend and backend.",
+      "status": "done",
+      "dependencies": [],
+      "priority": "high",
+      "details": "Initialize with README, .gitignore, and set up initial directory structure for React Native frontend and FastAPI backend.",
+      "testStrategy": "Verify repository is accessible and clone-able by all team members.",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Create GitHub Repository and Initialize with README and .gitignore",
+          "description": "Set up a new GitHub repository for the project and initialize it with a README file and a .gitignore file.",
+          "status": "done",
+          "dependencies": [],
+          "details": "Log in to GitHub and create a new repository. Name the repository appropriately to reflect the project. Initialize the repository with a README file to provide an overview of the project. Add a .gitignore file to exclude unnecessary files from being tracked, using templates for Node.js and Python to cover both frontend and backend needs."
+        },
+        {
+          "id": 2,
+          "title": "Set Up Initial Directory Structure for React Native Frontend",
+          "description": "Create the initial directory structure for the React Native frontend within the repository.",
+          "status": "done",
+          "dependencies": [
+            1
+          ],
+          "details": "Clone the newly created GitHub repository to your local machine. Inside the repository, create a directory named 'frontend'. Within this directory, set up the basic structure for a React Native project, including directories for components, assets, and any other necessary subdirectories. Use 'npx react-native init' to initialize a new React Native project within the 'frontend' directory."
+        },
+        {
+          "id": 3,
+          "title": "Set Up Initial Directory Structure for FastAPI Backend",
+          "description": "Create the initial directory structure for the FastAPI backend within the repository.",
+          "status": "done",
+          "dependencies": [
+            1
+          ],
+          "details": "Within the cloned repository, create a directory named 'backend'. Inside this directory, set up the basic structure for a FastAPI project, including directories for app modules, static files, and templates if needed. Initialize a virtual environment and install FastAPI and Uvicorn. Create a main.py file as the entry point for the FastAPI application."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Set Up FastAPI Backend",
+      "description": "Initialize FastAPI backend with PostgreSQL connection.",
+      "status": "done",
+      "dependencies": [
+        1
+      ],
+      "priority": "high",
+      "details": "Set up FastAPI project, configure PostgreSQL connection, and ensure environment variables are managed securely.",
+      "testStrategy": "Run FastAPI server locally and verify connection to PostgreSQL.",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Initialize FastAPI Project",
+          "description": "Set up a new FastAPI project structure and install necessary dependencies.",
+          "status": "done",
+          "dependencies": [],
+          "details": "Create a new directory for the FastAPI project. Initialize a virtual environment and install FastAPI using pip. Set up a basic project structure with main.py as the entry point. Verify the installation by running a simple FastAPI application that returns a 'Hello World' message."
+        },
+        {
+          "id": 2,
+          "title": "Configure PostgreSQL Connection",
+          "description": "Set up the connection to a PostgreSQL database using an ORM like SQLAlchemy.",
+          "status": "done",
+          "dependencies": [
+            1
+          ],
+          "details": "Install SQLAlchemy and asyncpg for database interaction. Create a database configuration file to manage connection details. Use SQLAlchemy to define a database engine and session. Test the connection by creating a simple model and performing basic CRUD operations."
+        },
+        {
+          "id": 3,
+          "title": "Manage Environment Variables Securely",
+          "description": "Implement secure management of environment variables for database credentials and other sensitive information.",
+          "status": "done",
+          "dependencies": [
+            1,
+            2
+          ],
+          "details": "Install python-dotenv to manage environment variables. Create a .env file to store sensitive information like database URL, username, and password. Update the FastAPI application to load these variables securely at runtime. Ensure the .env file is added to .gitignore to prevent it from being committed to version control."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Define Database Schema",
+      "description": "Create 'users' table in PostgreSQL database.",
+      "status": "done",
+      "dependencies": [
+        2
+      ],
+      "priority": "high",
+      "details": "Use provided SQL schema to create 'users' table with fields for id, full_name, email, password_hash, and created_at.",
+      "testStrategy": "Verify table creation in PostgreSQL and test with sample data insertion.",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Review and Validate SQL Schema",
+          "description": "Ensure the provided SQL schema for the 'users' table is complete and adheres to best practices.",
+          "status": "done",
+          "dependencies": [],
+          "details": "Examine the SQL schema to confirm it includes all necessary fields (id, full_name, email, password_hash, created_at) with appropriate data types and constraints. Ensure that 'id' is set as the primary key, 'email' has a unique constraint, and 'created_at' has a default value of the current timestamp. Make any necessary adjustments to align with best practices for database design."
+        },
+        {
+          "id": 2,
+          "title": "Set Up PostgreSQL Environment",
+          "description": "Prepare the PostgreSQL database environment for schema creation.",
+          "status": "done",
+          "dependencies": [
+            1
+          ],
+          "details": "Ensure PostgreSQL is installed and running on the target environment. Create a new database if necessary. Set up a connection to the database using a database client or command-line tool. Confirm that you have the necessary permissions to create tables in the database."
+        },
+        {
+          "id": 3,
+          "title": "Execute SQL Schema to Create 'users' Table",
+          "description": "Run the validated SQL schema to create the 'users' table in the PostgreSQL database.",
+          "status": "done",
+          "dependencies": [
+            2
+          ],
+          "details": "Using the database client or command-line tool, execute the SQL script to create the 'users' table. Verify that the table is created successfully by checking the database schema and ensuring all fields are present with the correct constraints. Address any errors that arise during execution."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Implement User Authentication Endpoints",
+      "description": "Develop FastAPI endpoints for user signup, login, and password management.",
+      "status": "done",
+      "dependencies": [
+        3
+      ],
+      "priority": "high",
+      "details": "Implement endpoints: POST /signup, POST /login, POST /forgot-password, POST /verify-code, POST /reset-password. Use bcrypt for password hashing and JWT for session management.",
+      "testStrategy": "Use Postman to test each endpoint for expected responses and error handling.",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Implement User Signup and Login Endpoints",
+          "description": "Develop the POST /signup and POST /login endpoints using FastAPI. Ensure password hashing with bcrypt and JWT token generation for session management.",
+          "status": "done",
+          "dependencies": [],
+          "details": "Start by setting up the FastAPI application and creating the necessary models for user data. Implement the /signup endpoint to accept user registration details, hash the password using bcrypt, and store the user data in the database. For the /login endpoint, validate user credentials, compare the hashed password, and generate a JWT token for successful logins. Ensure proper error handling and response formatting."
+        },
+        {
+          "id": 2,
+          "title": "Implement Password Management Endpoints",
+          "description": "Develop the POST /forgot-password, POST /verify-code, and POST /reset-password endpoints to handle password recovery and reset processes.",
+          "status": "done",
+          "dependencies": [
+            1
+          ],
+          "details": "Create the /forgot-password endpoint to initiate the password recovery process by sending a verification code to the user's email. Implement the /verify-code endpoint to validate the code provided by the user. Finally, develop the /reset-password endpoint to allow users to set a new password, ensuring it is hashed with bcrypt before updating the database. Ensure all endpoints have appropriate validation and error handling."
+        },
+        {
+          "id": 3,
+          "title": "Integrate and Test Authentication Endpoints",
+          "description": "Integrate all authentication endpoints into the FastAPI application and perform thorough testing to ensure functionality and security.",
+          "status": "done",
+          "dependencies": [
+            1,
+            2
+          ],
+          "details": "Integrate the developed endpoints into the main FastAPI application, ensuring they are properly registered and accessible. Write unit and integration tests to verify the functionality of each endpoint, focusing on edge cases and security aspects like password hashing, JWT token generation, and validation. Use tools like pytest for testing and ensure all tests pass successfully before deployment."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Build React Native UI Screens",
+      "description": "Create UI screens for login, signup, forgot password, verification, reset, and plan selection.",
+      "status": "done",
+      "dependencies": [
+        1
+      ],
+      "priority": "medium",
+      "details": "Develop screens using React Native with dark-themed backgrounds and specified UI elements. Ensure responsiveness and accessibility.",
+      "testStrategy": "Visually inspect each screen on multiple devices and resolutions.",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Set Up Project and Create Basic Screen Structure",
+          "description": "Initialize the React Native project and create basic screen components for login, signup, forgot password, verification, reset, and plan selection.",
+          "status": "done",
+          "dependencies": [],
+          "details": "Start by setting up a new React Native project using a tool like Expo or React Native CLI. Create separate component files for each screen: LoginScreen, SignupScreen, ForgotPasswordScreen, VerificationScreen, ResetScreen, and PlanSelectionScreen. Ensure each component returns a basic View with a Text element indicating the screen name. This will serve as the foundation for further development."
+        },
+        {
+          "id": 2,
+          "title": "Implement UI Elements with Dark Theme",
+          "description": "Design and implement the UI elements for each screen using a dark-themed background, ensuring consistency across screens.",
+          "status": "done",
+          "dependencies": [
+            1
+          ],
+          "details": "For each screen component, replace the basic View with a styled View that uses a dark color scheme. Implement necessary UI elements such as TextInputs, Buttons, and any other required components. Use React Native's StyleSheet to define styles, ensuring that the dark theme is applied consistently. Consider using a UI library like React Native Paper or NativeBase for additional components and theming support."
+        },
+        {
+          "id": 3,
+          "title": "Ensure Responsiveness and Accessibility",
+          "description": "Enhance the screens to be responsive across different device sizes and ensure accessibility features are implemented.",
+          "status": "done",
+          "dependencies": [
+            2
+          ],
+          "details": "Use Flexbox for layout to ensure that the UI adapts to different screen sizes. Test the screens on various devices and orientations. Implement accessibility features such as accessible labels for all interactive elements, proper contrast ratios, and keyboard navigation support. Use React Native's Accessibility API to ensure compliance with accessibility standards."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Integrate Frontend with Backend",
+      "description": "Connect React Native frontend with FastAPI backend for authentication flows.",
+      "status": "done",
+      "dependencies": [
+        4,
+        5
+      ],
+      "priority": "high",
+      "details": "Use Axios or Fetch API to handle HTTP requests from React Native to FastAPI endpoints. Manage JWT tokens with AsyncStorage.",
+      "testStrategy": "Perform end-to-end testing of signup and login flows to ensure data is correctly sent and received.",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Set Up HTTP Client in React Native",
+          "description": "Configure Axios or Fetch API to handle HTTP requests to the FastAPI backend.",
+          "status": "done",
+          "dependencies": [],
+          "details": "Decide whether to use Axios or Fetch API for making HTTP requests. Install Axios if chosen by running 'npm install axios'. Create a utility file (e.g., 'apiClient.js') to configure the HTTP client with base URL pointing to the FastAPI backend. Ensure the client can handle common configurations such as headers and timeouts."
+        },
+        {
+          "id": 2,
+          "title": "Implement Authentication API Calls",
+          "description": "Create functions to handle authentication requests such as login and registration using the configured HTTP client.",
+          "status": "done",
+          "dependencies": [
+            1
+          ],
+          "details": "In the utility file, implement functions for authentication flows like 'login' and 'register'. These functions should use the HTTP client to send POST requests to the corresponding FastAPI endpoints. Handle responses and errors appropriately, ensuring that JWT tokens are extracted from successful responses."
+        },
+        {
+          "id": 3,
+          "title": "Manage JWT Tokens with AsyncStorage",
+          "description": "Store and retrieve JWT tokens using AsyncStorage to maintain user sessions.",
+          "status": "done",
+          "dependencies": [
+            2
+          ],
+          "details": "Install AsyncStorage if not already available by running 'npm install @react-native-async-storage/async-storage'. In the authentication functions, save the JWT token to AsyncStorage upon successful login or registration. Implement utility functions to retrieve and delete the token as needed, ensuring secure and efficient token management."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Implement Form Validation",
+      "description": "Add real-time form validation for email and password fields on the frontend.",
+      "status": "done",
+      "dependencies": [
+        5
+      ],
+      "priority": "medium",
+      "details": "Use libraries like Formik or custom validation logic to enforce email format and password strength rules.",
+      "testStrategy": "Test form inputs with valid and invalid data to ensure proper validation messages are displayed.",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Set Up Formik for Form Handling",
+          "description": "Integrate Formik into the project to manage form state and handle submissions.",
+          "status": "done",
+          "dependencies": [],
+          "details": "Install Formik via npm or yarn. Wrap the form component with the Formik component, providing initial values for the email and password fields. Ensure that Formik's handleChange and handleSubmit methods are connected to the form inputs and submission button."
+        },
+        {
+          "id": 2,
+          "title": "Implement Email Validation Logic",
+          "description": "Add real-time validation for the email field to ensure it follows a valid email format.",
+          "status": "done",
+          "dependencies": [
+            1
+          ],
+          "details": "Use Formik's validationSchema or validate function to define a validation rule for the email field. Utilize a library like Yup to specify that the email field must match a standard email regex pattern. Display error messages below the email input field when the validation fails."
+        },
+        {
+          "id": 3,
+          "title": "Implement Password Strength Validation",
+          "description": "Add real-time validation for the password field to enforce password strength rules.",
+          "status": "done",
+          "dependencies": [
+            1
+          ],
+          "details": "Define password strength criteria, such as minimum length, inclusion of numbers, and special characters. Use Formik's validationSchema or validate function to apply these rules to the password field. Display error messages below the password input field when the validation fails, providing feedback on which criteria are not met."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Add Password Visibility Toggle",
+      "description": "Implement eye icon functionality to toggle password visibility on login and signup screens.",
+      "status": "done",
+      "dependencies": [
+        5
+      ],
+      "priority": "low",
+      "details": "Add an eye icon to password input fields and toggle input type between 'password' and 'text' on icon click.",
+      "testStrategy": "Verify that clicking the eye icon correctly toggles password visibility.",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Add Eye Icon to Password Input Fields",
+          "description": "Add an eye icon to the password input fields on both login and signup screens.",
+          "status": "done",
+          "dependencies": [],
+          "details": "Identify the password input fields in the login and signup screens. Use a UI component library or custom SVG to add an eye icon next to these fields. Ensure the icon is styled appropriately and is clickable."
+        },
+        {
+          "id": 2,
+          "title": "Implement Password Visibility Toggle Functionality",
+          "description": "Implement the functionality to toggle the password visibility when the eye icon is clicked.",
+          "status": "done",
+          "dependencies": [
+            1
+          ],
+          "details": "Attach a click event listener to the eye icon. On click, toggle the input type of the associated password field between 'password' and 'text'. Ensure the icon visually indicates the current state (e.g., open eye for visible password, closed eye for hidden password)."
+        },
+        {
+          "id": 3,
+          "title": "Test and Validate Password Visibility Toggle",
+          "description": "Test the password visibility toggle functionality to ensure it works correctly on both login and signup screens.",
+          "status": "done",
+          "dependencies": [
+            2
+          ],
+          "details": "Perform manual testing to verify that clicking the eye icon correctly toggles the password visibility. Check for any UI issues or JavaScript errors in the console. Ensure that the functionality is consistent across different browsers and devices. Update any automated tests if necessary."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Implement Terms of Use Consent",
+      "description": "Display Terms of Use consent information on the signup page.",
+      "status": "done",
+      "dependencies": [
+        5
+      ],
+      "priority": "low",
+      "details": "Add footer text to the signup page explaining that using the platform means agreeing to the Terms of Use.",
+      "testStrategy": "Ensure the footer is visible and correctly formatted on the signup page.",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Design Terms of Use Consent UI",
+          "description": "Create a design for displaying the Terms of Use consent information on the signup page.",
+          "status": "done",
+          "dependencies": [],
+          "details": "Work with the design team to create a mockup for the Terms of Use consent section. This should include the placement of the text in the footer, font size, color, and any additional styling to ensure it is visible and consistent with the overall design of the signup page."
+        },
+        {
+          "id": 2,
+          "title": "Implement Terms of Use Consent UI",
+          "description": "Develop the frontend code to display the Terms of Use consent information on the signup page as per the design.",
+          "status": "done",
+          "dependencies": [
+            1
+          ],
+          "details": "Using HTML, CSS, and JavaScript, implement the design created in Subtask 1. Ensure the text is added to the footer of the signup page and is responsive across different devices. Test the implementation across various browsers to ensure compatibility."
+        },
+        {
+          "id": 3,
+          "title": "Integrate Terms of Use Link",
+          "description": "Add a hyperlink to the Terms of Use text that directs users to the full Terms of Use document.",
+          "status": "done",
+          "dependencies": [
+            2
+          ],
+          "details": "Modify the Terms of Use text in the footer to include a clickable link. Ensure the link opens the full Terms of Use document in a new tab or window. Verify that the link is accessible and functional, and update any necessary routing or URL configurations to support this feature."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Conduct Security and Usability Testing",
+      "description": "Perform comprehensive testing for security vulnerabilities and user experience issues.",
+      "status": "done",
+      "dependencies": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "priority": "medium",
+      "details": "Test for common security issues like SQL injection, XSS, and ensure JWT tokens are securely stored. Gather user feedback on UI/UX.",
+      "testStrategy": "Use security testing tools and conduct user testing sessions to identify and fix issues.",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Perform Security Testing",
+          "description": "Conduct security testing to identify vulnerabilities such as SQL injection, XSS, and ensure JWT tokens are securely stored.",
+          "status": "done",
+          "dependencies": [],
+          "details": "Use automated security testing tools like OWASP ZAP or Burp Suite to scan for vulnerabilities. Manually test for SQL injection and XSS by attempting to inject malicious scripts and SQL queries in input fields. Verify that JWT tokens are stored securely by checking for proper encryption and storage practices. Document any vulnerabilities found and suggest remediation steps."
+        },
+        {
+          "id": 2,
+          "title": "Conduct Usability Testing",
+          "description": "Gather user feedback on UI/UX to identify user experience issues.",
+          "status": "done",
+          "dependencies": [
+            1
+          ],
+          "details": "Recruit a group of users representative of the target audience. Conduct usability testing sessions where users perform common tasks using the application. Observe and record any difficulties or confusion encountered. Use surveys or interviews to gather additional feedback on the user interface and overall experience. Compile the feedback into a report highlighting key issues and potential improvements."
+        },
+        {
+          "id": 3,
+          "title": "Analyze and Report Findings",
+          "description": "Analyze the results from security and usability testing and compile a comprehensive report.",
+          "status": "done",
+          "dependencies": [
+            1,
+            2
+          ],
+          "details": "Review the findings from both security and usability testing. Prioritize issues based on severity and impact. Compile a detailed report that includes identified security vulnerabilities, user experience issues, and recommended solutions. Present the report to stakeholders and discuss the next steps for addressing the identified issues."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "projectName": "Mobile Authentication App",
+    "totalTasks": 10,
+    "sourceFile": "scripts/prd.txt",
+    "generatedAt": "2023-11-23"
+  }
+}
